@@ -100,7 +100,7 @@ $(document).ready(function () {
 			$('#inputBox').prop("disabled",false);
 			$('#inputBox').css("background","transparent");
 			$('#inputBox').css("color","red");
-			$('body').css('background-image', 'url("https://lamit-win.github.io/meani-quiz-asset/img/'+questionBank[currentQuestionNumber][3]+'")');
+			$('body').css('background-image', 'url("img/'+questionBank[currentQuestionNumber][3]+'")');
 			
 			currentAnswer=questionBank[currentQuestionNumber][2];
 			currentQuestionNumber=Math.floor(Math.random()*numberOfQuestions);
