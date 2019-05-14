@@ -15,7 +15,7 @@ $(document).ready(function () {
 			asset=1280
 		};
 
-		var jsonUrl = 'https://spreadsheets.google.com/feeds/cells/15KQoHeYYh3zFC1Pjh2c6tvCZD9jysXOjwJWa2odPuco/2/public/full?alt=json';         
+		var jsonUrl = 'https://spreadsheets.google.com/feeds/cells/15KQoHeYYh3zFC1Pjh2c6tvCZD9jysXOjwJWa2odPuco/3/public/full?alt=json';         
 		$.getJSON(jsonUrl, function(data){
 			var entry = data.feed.entry;
 			var hints = [];
@@ -142,7 +142,7 @@ $(document).ready(function () {
 		function scorePage(){
 			$("#gameArea").empty();
 			$('#gameArea').append('<input type="button" id="btnRestart" class="btn btn-outline-warning float-right" value="RESTART">');
-			$("#gameArea").append('<div id="wordBox"><a class="btn btn-outline-info" href="lv2.html">LV.2</a>Đúng: <b>'+score+'</b> ('+numberOfQuestions+')</div>');
+			$("#gameArea").append('<div id="wordBox"><a class="btn btn-outline-info" href="index.html">LV.1</a>Đúng: <b>'+score+'</b> ('+numberOfQuestions+')</div>');
 			gamePosition=4;
 			setInterval(function() {location.reload(true); }, 30000);
 					
