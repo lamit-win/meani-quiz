@@ -38,7 +38,11 @@ $(document).ready(function () {
 			updateQuestion();
 			
 		})//getJSON
-	
+		/*
+		$(document).on("click tap",function(){
+			gameControl();
+		});//tap
+		*/
 		$(document).on("keyup",function(e){
 			if(e.which==13){gameControl();};						  
 		});
@@ -48,17 +52,12 @@ $(document).ready(function () {
 		$(document).on("click","#btnNext",function(){
 			gameControl();
 		});
-		$(document).on("click","#btnRestart",function(){
-			location.reload(true);
-		});
 		$(document).on("click","#btnStop",function(){
 			scorePage();
 		});
-		/*
-		$(document).on("click tap",function(){
-			gameControl();
-		});//tap
-		*/
+		$(document).on("click","#btnRestart",function(){
+			location.reload(true);
+		});
 	
 		function gameControl(){		
 			switch (gamePosition) { 
@@ -87,6 +86,7 @@ $(document).ready(function () {
 			$("#gameArea").append('<div id="message"></div>');
 			$("#message").append('<button id="time" class="btn btn-outline-warning">66</button>');
 			$("#message").append('<input type="text" id="inputBox">');
+			$('#message').append('<input type="button" value="0" id="btnScore" class="btn btn-outline-info float-right">');
 			$("#message").append('<h3 id="wordBox"></h3>');
 			$("#control").append('<button id="btnNext" class="btn btn-outline-success float-right">NEXT</button>');
 			//$("#gameArea").append('<p id="message"></p>');
@@ -115,19 +115,19 @@ $(document).ready(function () {
 			if(currentAnswer==myAnswer){
 				counter+=15;
 				score++;
-				//$('#inputBox').append('<a href="../'+questionBank[currentQuestionNumber][3]+'" download><img class="btn btn-outline-success" src="img/tick.png"></a>');
+				$('#btnScore').val(score);
 				$('#inputBox').css("background-color","green");
 				$('#inputBox').css("color","white");
 			}
 			else{
-				$('#control').append('<input type="button" id="btnStop" value="STOP" class="btn btn-outline-danger">');
+				$('#control').prepend('<input type="button" value="STOP" id="btnStop" class="btn btn-outline-danger">');
 				$('#inputBox').css("background-color","red");
 				$('#inputBox').css("color","white");
 				$('#inputBox').val("Đáp: "+currentAnswer);
 				//$('#inputBox').val($('#inputBox').val()+" ("+currentAnswer+")");
 			}
 			$('#inputBox').prop('disabled', true);
-			$('#gameArea').focus();
+			$('#btnScore').focus();
 			gamePosition=2;
 		}//checkAnswer
 									
