@@ -136,14 +136,15 @@ $(document).ready(function () {
 			$('#gameArea').append('<input type="button" id="btnRestart" class="btn btn-outline-warning float-right" value="RESTART">');
 			$("#gameArea").append('<div id="wordBox">Đúng: <b>'+score+'</b> ('+numberOfQuestions+')</div>');
 			gamePosition=4;
-setInterval(function() {location.reload(true); }, 30000);
+			setInterval(function() {location.reload(true); }, 30000);
 					
 		}//scorePage
 	var interval = setInterval(function() {
 			counter--;
 			if (counter <= 0) {
-				 clearInterval(interval);
-		scorePage();	return;
+				clearInterval(interval);
+				scorePage();	
+				return;
 			}else{
 				$('#time').text(counter);
 				//console.log("Timer --> " + counter);
