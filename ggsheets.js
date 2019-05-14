@@ -1,12 +1,20 @@
 $(document).ready(function () {
-	var counter;
+	
 		var questionBank=new Array;
 		var currentQuestionNumber;
 		var currentAnswer;
 		var numberOfQuestions;
 		var gamePosition;
 		var score;
-	
+		var counter;
+		var asset;
+
+		if(screen.width>1280){
+			asset=1920;
+		}else{
+			asset=1280
+		};
+
 		var jsonUrl = 'https://spreadsheets.google.com/feeds/cells/15KQoHeYYh3zFC1Pjh2c6tvCZD9jysXOjwJWa2odPuco/2/public/full?alt=json';         
 		$.getJSON(jsonUrl, function(data){
 			var entry = data.feed.entry;
@@ -100,7 +108,7 @@ $(document).ready(function () {
 			$('#inputBox').prop("disabled",false);
 			$('#inputBox').css("background","transparent");
 			$('#inputBox').css("color","red");
-			$('body').css('background-image', 'url("img/1280/'+questionBank[currentQuestionNumber][3]+'")');
+			$('body').css('background-image', 'url("img/'+asset+'/'+questionBank[currentQuestionNumber][3]+'")');
 			
 			currentAnswer=questionBank[currentQuestionNumber][2];
 			currentQuestionNumber=Math.floor(Math.random()*numberOfQuestions);
