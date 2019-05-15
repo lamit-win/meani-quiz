@@ -8,13 +8,11 @@ $(document).ready(function () {
 	var score;
 	var counter;
 	var asset;
-
+	
 	if(screen.width>1280){
 		asset=1920;
-	}else if(screen.width>640){
-		asset=1280;
 	}else{
-		asset=640
+		asset=1280;
 	};
 	var sheet=4;//lv++
 	var jsonUrl = 'https://spreadsheets.google.com/feeds/cells/15KQoHeYYh3zFC1Pjh2c6tvCZD9jysXOjwJWa2odPuco/'+sheet+'/public/full?alt=json';         
