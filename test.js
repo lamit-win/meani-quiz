@@ -143,7 +143,8 @@ $(document).ready(function () {
 		$('#rightf').append('<a class="btn btn-outline-info" href="index.html">LV.1</a>');
 		$('#rightf').append('<a class="btn btn-outline-info" href="lv2.html">LV.2</a>');
 		$('#rightf').append('<a class="btn btn-outline-info" href="lv3.html">LV.3</a>');
-		gamePosition=4;					
+		gamePosition=4;
+		setTimeout(function(){location.reload(true);},5000);
 	}//scorePage
 	var interval = setInterval(function() {
 		counter--;
@@ -154,6 +155,5 @@ $(document).ready(function () {
 		}else{
 			$('#time').text(counter);
 		}
-	}, 1000);
-	
+	},1000);
 });//doc end
