@@ -16,7 +16,7 @@ $(document).ready(function () {
 		asset=1280
 	};
 
-	var jsonUrl = 'https://spreadsheets.google.com/feeds/cells/15KQoHeYYh3zFC1Pjh2c6tvCZD9jysXOjwJWa2odPuco/4/public/full?alt=json';         
+	var jsonUrl = 'https://spreadsheets.google.com/feeds/cells/15KQoHeYYh3zFC1Pjh2c6tvCZD9jysXOjwJWa2odPuco/2/public/full?alt=json';         
 	$.getJSON(jsonUrl, function(data){
 		var entry = data.feed.entry;
 		var hints = [];
@@ -41,7 +41,6 @@ $(document).ready(function () {
 			questionBank[i]=typeArray; 
 		}
 		numberOfQuestions=questionBank.length;
-		//console.log(numberOfQuestions);
 		gamePosition=1; 
 		resetGame();
 		updateQuestion();
@@ -111,11 +110,9 @@ $(document).ready(function () {
 		$('body').css('background-image', 'url("img/'+asset+'/'+questionBank[currentQuestionNumber][3]+'")');
 		
 		currentAnswer=questionBank[currentQuestionNumber][2];
-
 		questionBank.splice(currentQuestionNumber, 1);
 		numberOfQuestions=questionBank.length;
 		//console.log(numberOfQuestions);
-
 		currentQuestionNumber=Math.floor(Math.random()*numberOfQuestions);
 		gamePosition=1;
 		if(numberOfQuestions==0){scorePage();}
