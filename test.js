@@ -12,11 +12,13 @@ $(document).ready(function () {
 
 	if(screen.width>1280){
 		asset=1920;
+	}else if(screen.width>640){
+		asset=1280;
 	}else{
-		asset=1280
+		asset=640
 	};
-
-	var jsonUrl = 'https://spreadsheets.google.com/feeds/cells/15KQoHeYYh3zFC1Pjh2c6tvCZD9jysXOjwJWa2odPuco/2/public/full?alt=json';         
+	var sheet=2;//lv+1
+	var jsonUrl = 'https://spreadsheets.google.com/feeds/cells/15KQoHeYYh3zFC1Pjh2c6tvCZD9jysXOjwJWa2odPuco/'+sheet+'/public/full?alt=json';         
 	$.getJSON(jsonUrl, function(data){
 		var entry = data.feed.entry;
 		var hints = [];
