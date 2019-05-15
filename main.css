@@ -1,0 +1,23 @@
+body{
+	background:url('https://lamit-win.github.io/meani/bg.png') no-repeat center center fixed;
+	-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;
+}
+#gameArea{
+	color:#F39;
+	width:100%;
+}
+#wordBox{
+    font-weight:bold;
+    text-shadow:
+       2px 2px 0 #fff,
+     -1px -1px 0 #fff,  
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+       1px 1px 0 #fff;
+}
+#inputBox{
+	border:2px #69F solid; 
+	border-radius:3px;
+    padding:5px;
+    font-weight:bold;
+}
