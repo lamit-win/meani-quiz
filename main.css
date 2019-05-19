@@ -18,7 +18,7 @@ body{
 #inputBox{
 	border:2px #69F solid; 
 	border-radius:3px;
-font-size:18px;
+font-size:26px;
 }
 @media (min-width: 1282px) { 
     html{
