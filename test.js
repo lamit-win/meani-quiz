@@ -14,7 +14,7 @@ $(document).ready(function () {
 	}else{
 		asset=1280;
 	};
-	var sheet=3;//lv++
+	var sheet=4;//lv++
 	var jsonUrl = 'https://spreadsheets.google.com/feeds/cells/15KQoHeYYh3zFC1Pjh2c6tvCZD9jysXOjwJWa2odPuco/'+sheet+'/public/full?alt=json';         
 	$.getJSON(jsonUrl, function(data){
 		var entry = data.feed.entry;
@@ -105,7 +105,6 @@ $(document).ready(function () {
 		$('#inputBox').css('background','transparent');
 		$('#inputBox').css('color','#f39');
 		$('body').css('background-image', 'url("img/'+asset+'/'+questionBank[currentQuestionNumber][3]+'")');
-		
 		currentAnswer=questionBank[currentQuestionNumber][2];
 		questionBank.splice(currentQuestionNumber, 1);
 		numberOfQuestions=questionBank.length;
@@ -113,11 +112,14 @@ $(document).ready(function () {
 		currentQuestionNumber=Math.floor(Math.random()*numberOfQuestions);
 		gamePosition=1;
 		if(numberOfQuestions==0){scorePage();}
-		clearTimeout(t);
-		var t=setTimeout(function(){updateQuestion();},6000);
+		//clearTimeout(t);
+		var t=setTimeout(function(){gameControl();},3000);
 	}//updateQuestion
 	function checkAnswer(){
 		myAnswer=$('#inputBox').val();
+
+		if (currentQuestionNumber % 3 == 0){myAnswer=currentAnswer}
+
 		if(myAnswer.slice(myAnswer.length-1,myAnswer.length)==" "){
 			myAnswer=myAnswer.slice(0,myAnswer.length-1);}
 		if(currentAnswer==myAnswer){
@@ -126,6 +128,7 @@ $(document).ready(function () {
 			$('#btnScore').val(score);
 			$('#inputBox').css("background-color","green");
 			$('#inputBox').css('color',"white");
+			$('#inputBox').val(currentAnswer);
 		}
 		else{
 			$('#control').prepend('<input type="button" value="STOP" id="btnStop" class="btn btn-outline-danger">');
@@ -136,6 +139,7 @@ $(document).ready(function () {
 		$('#inputBox').prop('disabled', true);
 		$('#btnScore').focus();
 		gamePosition=2;
+		setTimeout(function(){updateQuestion();},3000);
 	}//checkAnswer				
 	function scorePage(){
 		$('#gameArea').empty();
