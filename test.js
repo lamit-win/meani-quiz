@@ -14,7 +14,7 @@ $(document).ready(function () {
 	}else{
 		asset=1280;
 	};
-	var sheet=2;//lv++
+	var sheet=3;//lv++
 	var jsonUrl = 'https://spreadsheets.google.com/feeds/cells/15KQoHeYYh3zFC1Pjh2c6tvCZD9jysXOjwJWa2odPuco/'+sheet+'/public/full?alt=json';         
 	$.getJSON(jsonUrl, function(data){
 		var entry = data.feed.entry;
@@ -113,6 +113,8 @@ $(document).ready(function () {
 		currentQuestionNumber=Math.floor(Math.random()*numberOfQuestions);
 		gamePosition=1;
 		if(numberOfQuestions==0){scorePage();}
+		clearTimeout(t);
+		var t=setTimeout(function(){updateQuestion();},6000);
 	}//updateQuestion
 	function checkAnswer(){
 		myAnswer=$('#inputBox').val();
